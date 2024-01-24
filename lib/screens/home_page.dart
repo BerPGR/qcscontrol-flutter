@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qualitycontrol/screens/profile_page.dart';
 import 'package:qualitycontrol/widgets/home_selector.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -37,7 +38,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                     ),
                   ),
-                  Image.asset('assets/images/perfil.png')
+                  GestureDetector(
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ProfileScreen())),
+                    child: Image.asset('assets/images/perfil.png'),
+                  )
                 ],
               )
             ],

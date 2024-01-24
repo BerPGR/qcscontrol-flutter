@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "40161199397",
+    "project_id": "qcservice-b6625",
+    "storage_bucket": "qcservice-b6625.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:40161199397:android:1ab81abf99e57d8dfac6cc",
+        "android_client_info": {
+          "package_name": "br.com.quality.qualitycontrol"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdjc4krSDCz6aEBY9ULu467XcNHzMBLhE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

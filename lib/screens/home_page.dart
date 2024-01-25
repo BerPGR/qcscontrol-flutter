@@ -14,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final User? user = AuthService().currentUser;
+  final AuthService _auth = AuthService();
   final _controller = PageController();
 
   @override
@@ -45,7 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ProfileScreen())),
+                            builder: (context) => ProfileScreen(
+                                  user: user,
+                                ))),
                     child: Image.asset('assets/images/perfil.png'),
                   )
                 ],
@@ -62,7 +65,10 @@ class _HomeScreenState extends State<HomeScreen> {
               scrollDirection: Axis.horizontal,
               children: [
                 Selector(text: "Acompanhar produtos"),
-                Selector(text: "Relatório mensal")
+                GestureDetector(
+                  child: Selector(text: "Relatório mensal"),
+                  onTap: () => _auth.signOut(),
+                )
               ],
             ),
           ),

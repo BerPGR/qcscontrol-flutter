@@ -14,6 +14,11 @@ class AuthService {
 
   Future<void> signInWithEmailAndPassword(String email, String password) async {
     await _auth.signInWithEmailAndPassword(email: email, password: password);
+
+    if (_auth.currentUser?.displayName == null) {
+      String? email = _auth.currentUser?.email;
+      await _auth.currentUser?.updateDisplayName(email!.split("@")[0]);
+    }
   }
 
   Future<void> signOut() async {

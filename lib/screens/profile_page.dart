@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+  const ProfileScreen({super.key, required this.user});
+  final User? user;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class ProfileScreen extends StatelessWidget {
                     children: [
                       Padding(
                           padding: EdgeInsets.only(right: 8),
-                          child: Text("Janio")),
+                          child: Text("${user?.displayName}")),
                       Image.asset('assets/images/perfil.png')
                     ],
                   )

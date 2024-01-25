@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:qualitycontrol/service/FirebaseAuth.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -9,6 +10,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final AuthService _auth = AuthService();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -54,6 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     TextField(
                         controller: _passwordController,
+                        obscureText: true,
                         decoration: InputDecoration(
                           labelText: 'Password',
                           enabledBorder: OutlineInputBorder(
@@ -71,7 +74,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     Container(
                       width: double.infinity,
                       child: TextButton(
-                        onPressed: () => signIn(),
+                        onPressed: () => _auth.signInWithEmailAndPassword(
+                            _emailController.text, _passwordController.text),
                         child: Text(
                           'Ler Código',
                           style: TextStyle(color: Colors.white, fontSize: 18),
@@ -88,11 +92,5 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ]),
             )));
-  }
-
-  Future signIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim());
   }
 }

@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:qualitycontrol/screens/profile_page.dart';
+import 'package:qualitycontrol/service/FirebaseAuth.dart';
 import 'package:qualitycontrol/widgets/home_selector.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -11,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final User? user = AuthService().currentUser;
   final _controller = PageController();
 
   @override
@@ -74,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 dotColor: Color(0xFF9A0142),
                 dotWidth: 8,
                 dotHeight: 8),
-          )
+          ),
         ]),
       ),
     )));
